@@ -1,0 +1,166 @@
+/* Заполняем весь экран */
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* убираем полосы прокрутки */
+  background: #000;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Canvas занимает весь экран */
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* отправляем его под контент */
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  position: fixed;            /* фиксируем сверху */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;              /* располагаем элементы в ряд */
+  justify-content: center; 
+  align-items: center;
+  gap: 80vh;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.35); /* полупрозрачный фон */
+  backdrop-filter: blur(10px);     /* эффект "стекла" */
+  z-index: 10;               /* поверх canvas */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f967fb; /* подсветка при наведении */
+}
+
+
+/* Контейнер для текста */
+.hero {
+  position: relative;
+  z-index: 1; /* поверх canvas */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 10px;
+  text-align: center;
+}
+
+/* Заголовки */
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  user-select: none;
+  text-transform: uppercase;
+}
+
+
+h1 {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+/* Ссылка */
+a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.7;
+  letter-spacing: 9px;
+  transition: opacity 0.3s ease;
+
+}
+
+a:hover {
+  opacity: 1;
+}
+
+/* ===== Мобильная адаптация ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;   /* logo virs linkiem */
+    justify-content: center;
+    gap: 20px;                /* mazāks atstatums starp elementiem */
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;   /* linki sakārtoti vertikāli */
+    gap: 10px;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 40px;          /* samazinām fontus, lai ietilptu */
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  a {
+    letter-spacing: 4px;
+  }
+}
+
+/* Mazāki telefoni */
+@media (max-width: 480px) {
+  .navbar {
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  a {
+    letter-spacing: 2px;
+  }
+}
